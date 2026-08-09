@@ -19,7 +19,7 @@ npx finpilot-mcp login
 
 That opens a browser, they approve the request, and the CLI writes a `finpilot`
 entry into `./.mcp.json`. They must restart their MCP client afterwards. To add
-it to another project later, `npx finpilot-mcp install` reuses the saved
+it to another project later, `npx @agustinlzn/finpilot-mcp install` reuses the saved
 credential — no second login.
 
 The grant is **read-only**. If the user wants write access, they create a token
