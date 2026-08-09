@@ -4,7 +4,7 @@ Connect your [Finpilot](https://finpilot-market.vercel.app) portfolios to Claude
 Code — or any MCP client — with one command.
 
 ```bash
-npx finpilot-mcp login
+npx @agustinlzn/finpilot-mcp login
 ```
 
 That opens your browser, you approve the request, and the CLI writes a
@@ -49,7 +49,7 @@ Available scopes are `portfolios:read`, `wealth:read`, `market:read`,
 `strategy:read` and `profile:read`. Narrow them if you want:
 
 ```bash
-npx finpilot-mcp login --scopes portfolios:read,market:read
+npx @agustinlzn/finpilot-mcp login --scopes portfolios:read,market:read
 ```
 
 ## Security
