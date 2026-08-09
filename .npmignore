@@ -1,0 +1,10 @@
+# Ignore everything except what's listed in package.json "files"
+*
+!.gitkeep
+
+# Re-include published files
+!/dist/
+!/skills/
+!/README.md
+!/LICENSE
+!/package.json

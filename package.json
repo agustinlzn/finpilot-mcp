@@ -1,5 +1,5 @@
 {
-  "name": "finpilot-mcp",
+  "name": "@agustinlzn/finpilot-mcp",
   "version": "0.1.0",
   "type": "module",
   "description": "Connect your Finpilot portfolios to Claude Code and any other MCP client, with one command.",
@@ -12,6 +12,7 @@
     "investing",
     "cli"
   ],
+  "private": false,
   "license": "MIT",
   "author": "Agustin B. Lozano",
   "homepage": "https://github.com/agustinlozano/finpilot-mcp",
@@ -23,7 +24,7 @@
     "url": "https://github.com/agustinlozano/finpilot-mcp/issues"
   },
   "bin": {
-    "finpilot-mcp": "./dist/index.js"
+    "finpilot-mcp": "dist/index.js"
   },
   "//files": "dist and the skill only. The rest of the repo (src, tests, configs) is on GitHub for anyone who wants it and is dead weight in an npx download.",
   "files": [
@@ -44,12 +45,9 @@
     "prepublishOnly": "pnpm run build && pnpm run test"
   },
   "//dependencies": "Deliberately none. tsup bundles everything into a single dist/index.js, so `npx finpilot-mcp` is one small download with no install step — which matters when the whole pitch is 'one command'.",
-  "dependencies": {},
   "devDependencies": {
     "@clack/prompts": "^0.11.0",
     "@types/node": "^20",
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
     "eslint": "^9",
     "picocolors": "^1.1.1",
     "tsup": "^8.5.0",
