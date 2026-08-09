@@ -14,7 +14,7 @@ once connected.
 If the Finpilot tools are not available, the user needs to link their account:
 
 ```bash
-npx finpilot-mcp login
+npx @agustinlzn/finpilot-mcp login
 ```
 
 That opens a browser, they approve the request, and the CLI writes a `finpilot`
