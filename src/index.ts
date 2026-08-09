@@ -1,6 +1,6 @@
 import { parseArgs } from "node:util"
 
-import { intro, log, note, outro, spinner } from "@clack/prompts"
+import { cancel, confirm, intro, isCancel, log, note, outro, spinner } from "@clack/prompts"
 import pc from "picocolors"
 
 import { openBrowser } from "./browser"
@@ -17,6 +17,7 @@ import {
   requestDeviceCode,
 } from "./device-flow"
 import { installMcpEntry } from "./install"
+import { sameOriginUrl } from "./safe-url"
 import { AVAILABLE_SCOPES, DEFAULT_SCOPES, parseScopes, type Scope } from "./scopes"
 
 const VERSION = "0.1.0"
@@ -72,7 +73,15 @@ async function commandLogin(opts: {
 
   s.stop("Device code ready")
 
-  const url = device.verification_uri_complete ?? device.verification_uri
+  // The server picks this URL, so it is checked before it reaches the OS opener
+  // or the user's eyes. Falling back to a URL we build ourselves means a server
+  // returning something off-origin degrades to "type the code in" rather than
+  // sending anyone somewhere unexpected.
+  const url =
+    sameOriginUrl(device.verification_uri_complete, opts.apiUrl) ??
+    sameOriginUrl(device.verification_uri, opts.apiUrl) ??
+    `${opts.apiUrl}/device?code=${encodeURIComponent(device.user_code)}`
+
   // Always print the code and URL, even when the browser opens: a spawn that
   // "succeeds" is no guarantee a window appeared, and over SSH there is no
   // browser at all.
@@ -82,8 +91,19 @@ async function commandLogin(opts: {
   )
 
   if (opts.open) {
-    const opened = await openBrowser(url)
-    if (!opened) log.warn("Couldn't open a browser — use the URL above.")
+    const shouldOpen = await confirm({
+      message: "Open this URL in your browser now?",
+    })
+    if (isCancel(shouldOpen)) {
+      cancel("Login cancelled.")
+      process.exit(1)
+    }
+    if (shouldOpen) {
+      const opened = await openBrowser(url)
+      if (!opened) log.warn("Couldn't open a browser — use the URL above.")
+    } else {
+      log.info("Open the URL above manually when you're ready.")
+    }
   }
 
   const poll = spinner()
@@ -102,7 +122,12 @@ async function commandLogin(opts: {
 
   poll.stop("Approved")
 
-  const mcpUrl = token.finpilot?.mcp_url ?? `${opts.apiUrl}/api/mcp`
+  // Whatever we accept here is where an MCP client will send this bearer token
+  // on every future call, so an off-origin suggestion is discarded rather than
+  // trusted — the canonical path on the instance we authenticated against is
+  // always the safe answer.
+  const mcpUrl =
+    sameOriginUrl(token.finpilot?.mcp_url, opts.apiUrl) ?? `${opts.apiUrl}/api/mcp`
   const file = await writeConfig({
     apiUrl: opts.apiUrl,
     token: token.access_token,

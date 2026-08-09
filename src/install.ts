@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises"
+import { chmod, readFile, writeFile } from "node:fs/promises"
 import path from "node:path"
 
 import {
@@ -41,6 +41,11 @@ export async function installMcpEntry(opts: {
   const merged = mergeMcpJson(existing, buildServerEntry(opts.mcpUrl, opts.token))
 
   await writeFile(file, merged.content, { mode: 0o600 })
+  // `writeFile`'s `mode` is honoured only when it CREATES the file, and this one
+  // usually exists already — so the common path used to leave a bearer token in
+  // whatever bits the file happened to have, typically 0644. Same re-assertion
+  // `config.ts` makes for `~/.finpilot/config.json`.
+  await chmod(file, 0o600)
 
   const gitignore = await readIfPresent(path.join(opts.cwd, ".gitignore"))
 
