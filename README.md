@@ -30,10 +30,10 @@ Six read-only tools:
 ## Commands
 
 ```bash
-npx finpilot-mcp login      # authorize this machine, save the token, write .mcp.json
-npx finpilot-mcp install    # write .mcp.json in another project, reusing the saved login
-npx finpilot-mcp status     # what's saved and what it can read (never prints the token)
-npx finpilot-mcp logout     # delete the saved credential from this machine
+npx @agustinlzn/finpilot-mcp login      # authorize this machine, save the token, write .mcp.json
+npx @agustinlzn/finpilot-mcp install    # write .mcp.json in another project, reusing the saved login
+npx @agustinlzn/finpilot-mcp status     # what's saved and what it can read (never prints the token)
+npx @agustinlzn/finpilot-mcp logout     # delete the saved credential from this machine
 ```
 
 ### Options

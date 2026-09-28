@@ -11,7 +11,7 @@ import { defineConfig } from "tsup"
  * would be a syntax error.
  *
  * Everything is bundled (`noExternal`) so the published package has zero runtime
- * dependencies and `npx finpilot-mcp login` is a single small download rather
+ * dependencies and `npx @agustinlzn/finpilot-mcp login` is a single small download rather
  * than an install graph. That is the difference between the pitch working and
  * not.
  */

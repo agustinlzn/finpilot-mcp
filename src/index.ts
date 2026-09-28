@@ -26,7 +26,7 @@ const HELP = `
 ${pc.bold("finpilot-mcp")} — connect your Finpilot portfolios to Claude Code and other MCP clients.
 
 ${pc.bold("USAGE")}
-  npx finpilot-mcp <command> [options]
+  npx @agustinlzn/finpilot-mcp <command> [options]
 
 ${pc.bold("COMMANDS")}
   login       Authorize this machine in your browser and save the token
@@ -163,14 +163,14 @@ async function runInstall(mcpUrl: string, token: string) {
     }
   } catch (error) {
     log.error(error instanceof Error ? error.message : String(error))
-    log.info("Your token is still saved — fix .mcp.json and run `finpilot-mcp install`.")
+    log.info("Your token is still saved — fix .mcp.json and run `npx @agustinlzn/finpilot-mcp install`.")
   }
 }
 
 async function commandInstall() {
   intro(pc.bold("finpilot-mcp install"))
   const config = await readConfig()
-  if (!config) fail("No saved credentials. Run `npx finpilot-mcp login` first.")
+  if (!config) fail("No saved credentials. Run `npx @agustinlzn/finpilot-mcp login` first.")
   await runInstall(config.mcpUrl, config.token)
   outro("Restart your MCP client to pick it up.")
 }
@@ -178,7 +178,7 @@ async function commandInstall() {
 async function commandStatus() {
   const config = await readConfig()
   if (!config) {
-    log.warn("Not logged in. Run `npx finpilot-mcp login`.")
+    log.warn("Not logged in. Run `npx @agustinlzn/finpilot-mcp login`.")
     return
   }
   // Never print the token. `status` is the command people paste into issues.

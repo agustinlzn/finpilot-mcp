@@ -44,7 +44,7 @@
     "test": "vitest run",
     "prepublishOnly": "pnpm run build && pnpm run test"
   },
-  "//dependencies": "Deliberately none. tsup bundles everything into a single dist/index.js, so `npx finpilot-mcp` is one small download with no install step — which matters when the whole pitch is 'one command'.",
+  "//dependencies": "Deliberately none. tsup bundles everything into a single dist/index.js, so `npx @agustinlzn/finpilot-mcp` is one small download with no install step — which matters when the whole pitch is 'one command'.",
   "devDependencies": {
     "@clack/prompts": "^0.11.0",
     "@types/node": "^20",

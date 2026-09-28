@@ -48,9 +48,9 @@ function describe(code: string, description?: string): string {
     case "access_denied":
       return "You denied the request in the browser. Nothing was shared."
     case "expired_token":
-      return "The code expired before it was approved. Run `finpilot-mcp login` again."
+      return "The code expired before it was approved. Run `npx @agustinlzn/finpilot-mcp login` again."
     case "invalid_grant":
-      return "This login is no longer valid. Run `finpilot-mcp login` again."
+      return "This login is no longer valid. Run `npx @agustinlzn/finpilot-mcp login` again."
     case "invalid_scope":
       return description ?? "Those permissions aren't available to the CLI."
     case "invalid_client":

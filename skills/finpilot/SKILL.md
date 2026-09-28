@@ -79,8 +79,8 @@ what they hold and point them at a licensed advisor for the rest.
 - **Tools missing after login** — the MCP client needs a restart to read
   `.mcp.json`.
 - **"token lacks the X scope"** — the grant is read-only and scoped. Re-run
-  `npx finpilot-mcp login --scopes portfolios:read,wealth:read,strategy:read,profile:read`,
+  `npx @agustinlzn/finpilot-mcp login --scopes portfolios:read,wealth:read,strategy:read,profile:read`,
   or create a token in the app for anything broader.
 - **"Rate limited"** — 30 requests per minute per token. Wait and batch.
-- **Auth failure** — the token expires 90 days after login. `npx finpilot-mcp login`
-  again. `npx finpilot-mcp status` shows what is currently saved.
+- **Auth failure** — the token expires 90 days after login. `npx @agustinlzn/finpilot-mcp login`
+  again. `npx @agustinlzn/finpilot-mcp status` shows what is currently saved.
