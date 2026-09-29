@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+*.tgz
+
+# Secrets — the CLI writes bearer tokens into .mcp.json
+.env
+.env.*
+!.env.example
+.mcp.json
+
+# Editor / OS
+.claude/
+.vscode/
+.idea/
+.DS_Store
