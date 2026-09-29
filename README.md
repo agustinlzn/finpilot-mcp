@@ -82,7 +82,7 @@ mistakes (quoting NAV change as if it were return, treating `null` as zero,
 double-converting ARS):
 
 ```bash
-npx skills add agustinlozano/finpilot-mcp
+npx skills add agustinlzn/finpilot-mcp
 ```
 
 ## Requirements

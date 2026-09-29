@@ -20,7 +20,7 @@ import { installMcpEntry } from "./install"
 import { sameOriginUrl } from "./safe-url"
 import { AVAILABLE_SCOPES, DEFAULT_SCOPES, parseScopes, type Scope } from "./scopes"
 
-const VERSION = "0.1.1"
+const VERSION = "0.1.2"
 
 const HELP = `
 ${pc.bold("finpilot-mcp")} — connect your Finpilot portfolios to Claude Code and other MCP clients.

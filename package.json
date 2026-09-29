@@ -1,6 +1,6 @@
 {
   "name": "@agustinlzn/finpilot-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Connect your Finpilot portfolios to Claude Code and any other MCP client, with one command.",
   "keywords": [
@@ -15,13 +15,13 @@
   "private": false,
   "license": "MIT",
   "author": "Agustin B. Lozano",
-  "homepage": "https://github.com/agustinlozano/finpilot-mcp",
+  "homepage": "https://github.com/agustinlzn/finpilot-mcp",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agustinlozano/finpilot-mcp.git"
+    "url": "git+https://github.com/agustinlzn/finpilot-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/agustinlozano/finpilot-mcp/issues"
+    "url": "https://github.com/agustinlzn/finpilot-mcp/issues"
   },
   "bin": {
     "finpilot-mcp": "dist/index.js"
