@@ -16,16 +16,23 @@ this CLI just handles the login.
 
 ## What your agent gets
 
-Six read-only tools:
+Eleven read-only tools:
 
 | Tool | Answers |
 | --- | --- |
 | `get_overview` | Net worth, per-portfolio P&L, asset mix, today's movers. Start here. |
 | `get_positions` | What you hold, flat or grouped by sector / class / currency / region |
-| `get_portfolios` | Every portfolio with a live valuation summary |
+| `get_portfolios` | Every portfolio with a live valuation summary and its cash |
 | `get_portfolio` | One portfolio's totals and per-holding P&L |
+| `get_equity` | Your equity book per company: what drove it, your biggest positions |
 | `get_performance` | Time-weighted return, drawdown, volatility over a range |
+| `get_transactions` | What happened: buys, sells, deposits, dividends, fees |
+| `get_closed_trades` | Realized P&L per exit, win rate, best and worst trades |
+| `get_goals` | Your net-worth goals and whether the recent pace gets there |
 | `get_investor_profile` | Your stated risk appetite, goals and preferences |
+| `explain_metric` | What a Finpilot number means and how it is computed |
+
+None of them can change your data.
 
 ## Commands
 
