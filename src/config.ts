@@ -13,7 +13,7 @@ import path from "node:path"
  * `mode` option when it *creates* the file.
  */
 
-export const DEFAULT_API_URL = "https://finpilot-market.vercel.app"
+export const DEFAULT_API_URL = "https://finpilot.agustinlzn.com"
 
 export interface StoredConfig {
   apiUrl: string

@@ -1,6 +1,6 @@
 # finpilot-mcp
 
-Connect your [Finpilot](https://finpilot-market.vercel.app) portfolios to Claude
+Connect your [Finpilot](https://finpilot.agustinlzn.com) portfolios to Claude
 Code — or any MCP client — with one command.
 
 ```bash
@@ -48,7 +48,7 @@ npx @agustinlzn/finpilot-mcp logout     # delete the saved credential from this 
 | Flag | Default |
 | --- | --- |
 | `--scopes <list>` | `portfolios:read, wealth:read, strategy:read, profile:read` |
-| `--api-url <url>` | `https://finpilot-market.vercel.app` |
+| `--api-url <url>` | `https://finpilot.agustinlzn.com` |
 | `--no-open` | Print the URL instead of launching a browser — useful over SSH |
 | `--no-install` | Log in without touching `.mcp.json` |
 

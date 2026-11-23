@@ -1,6 +1,6 @@
 {
   "name": "@agustinlzn/finpilot-mcp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "description": "Connect your Finpilot portfolios to Claude Code and any other MCP client, with one command.",
   "keywords": [
